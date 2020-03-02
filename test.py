@@ -23,14 +23,18 @@ print("Results: {}".format(result['total']))
 print("\n")
 
 result = api.search(query)
-# print(result)
+print(result)
+
 for data in result['matches']:
-    ip_address = data['ip_str']
-    try:
-        hostname = socket.gethostbyaddr(ip_address)
-        print("{:15}: {}".format(ip_address, hostname[0]))
-    except:
-        print("{:15}: <unknown>".format(ip_address))
+    print("{:15}: {}".format(data['ip_str'], data['hostnames']))
+    
+# for data in result['matches']:
+#    ip_address = data['ip_str']
+#    try:
+#        hostname = socket.gethostbyaddr(ip_address)
+#        print("{:15}: {}".format(ip_address, hostname[0]))
+#    except:
+#        print("{:15}: <unknown>".format(ip_address))
 
 
 
